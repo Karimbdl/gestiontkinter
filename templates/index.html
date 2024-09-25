@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des incidents - EPSI</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Gestion des incidents - EPSI</h1>
+
+    <div class="plan-container">
+        <img src="/static/rdc.png" id="plan" alt="Plan d'étage" />
+        
+        <!-- Boutons des salles -->
+        <button class="salle-btn" style="top: 55px; left: 506px;" onclick="openForm('Amphi 1')">Amphi 1</button>
+        <button class="salle-btn" style="top: 105px; left: 497px;" onclick="openForm('Amphi 2')">Amphi 2</button>
+        <button class="salle-btn" style="top: 75px; left: 395px;" onclick="openForm('Accueil')">Accueil</button>
+        <button class="salle-btn" style="top: 110px; left: 370px;" onclick="openForm('Peda')">Peda</button>
+        <button class="salle-btn" style="top: 110px; left: 170px;" onclick="openForm('Halle des salles des cours')">Halle des salles des cours</button>
+        <button class="salle-btn" style="top: 65px; left: 200px;" onclick="openForm('Salle 1')">Salle 1</button>
+        <button class="salle-btn" style="top: 165px; left: 218px;" onclick="openForm('Salle 2')">Salle 2</button>
+        <button class="salle-btn" style="top: 110px; left: 115px;" onclick="openForm('Salle 3')">Salle 3</button>
+    </div>
+
+    <!-- Formulaire de signalement d'incident -->
+    <div id="incident-form" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <h2>Signaler un incident dans <span id="salle-title"></span></h2>
+
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom">
+
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom">
+
+            <label for="date_naissance">Date de naissance (JJ/MM/AAAA):</label>
+            <input type="text" id="date_naissance" name="date_naissance">
+
+            <label for="categorie">Catégorie:</label>
+            <select id="categorie" name="categorie">
+                <option value="Problème technique">Problème technique</option>
+                <option value="Problème d'infrastructure">Problème d'infrastructure</option>
+                <option value="Problème de matériel">Problème de matériel</option>
+                <option value="Autre">Autre</option>
+            </select>
+
+            <label for="importance">Importance:</label>
+            <select id="importance" name="importance">
+                <option value="mineur">mineur</option>
+                <option value="moyen">moyen</option>
+                <option value="majeur">majeur</option>
+            </select>
+
+            <button onclick="submitIncident()">Soumettre</button>
+        </div>
+    </div>
+
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
